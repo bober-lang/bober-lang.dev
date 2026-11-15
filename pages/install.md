@@ -14,7 +14,7 @@ curl -fsSL https://bober-lang.dev/install.sh | PREFIX=/opt/bober sh
 
 ## Update
 
-`bober update` gets the newest build. Now and then bober tells you when one is out; set `TODO(update-env)` to turn
+`bober update` gets the newest build. Now and then bober tells you when one is out; set `BOBER_NO_UPDATE_CHECK` to turn
 that off. `bober version` prints which build you have.
 
 ## Uninstall
