@@ -1,0 +1,33 @@
+# Builds the site with the newest bober and deploys it to GitHub Pages; daily too, so that the pages bober prints follow
+# its builds.
+name: pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: "0 5 * * *"
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency: pages
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+      - run: |
+          sh install.sh
+          curl -fsSL https://github.com/rust-lang/mdBook/releases/download/v0.5.4/mdbook-v0.5.4-x86_64-unknown-linux-musl.tar.gz | tar -xzf - -C $HOME/.local/bin
+          PATH=$HOME/.local/bin:$PATH ./build.sh
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: book
+      - id: deploy
+        uses: actions/deploy-pages@v5
