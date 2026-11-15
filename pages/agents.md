@@ -4,7 +4,7 @@ A model does not know Bober yet. `bober skill` prints the [Guide](guide.md) as a
 For Claude Code, link the installed one, so that it follows `bober update`:
 
 ```sh
-mkdir -p ~/.claude/skills && ln -s ~/.local/share/bober/skills/bober ~/.claude/skills/bober
+mkdir -p ~/.claude/skills && ln -sfn ~/.local/share/bober/skills/bober ~/.claude/skills/bober
 ```
 
 Or install it as a plugin, which follows bober's repository instead:

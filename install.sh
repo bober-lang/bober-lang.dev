@@ -1,5 +1,7 @@
 #!/bin/sh
 # Installs bober's newest build: $PREFIX/share/bober, linked as $PREFIX/bin/bober. PREFIX defaults to ~/.local.
+# In braces, so that a download cut short runs none of it.
+{
 set -eu
 case "$(uname -sm)" in
 "Linux x86_64") p=Linux-X64 ;;
@@ -18,3 +20,4 @@ mv "$t/bober" "$PREFIX/share/bober"
 ln -sf ../share/bober/bin/bober "$PREFIX/bin/bober"
 echo "installed $PREFIX/bin/bober"
 case ":$PATH:" in *":$PREFIX/bin:"*) ;; *) echo "add $PREFIX/bin to PATH: export PATH=\"$PREFIX/bin:\$PATH\"" ;; esac
+}
