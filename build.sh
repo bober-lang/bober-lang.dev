@@ -19,7 +19,7 @@ for p in $top $mods; do
 	up=$(echo "$p" | sed 's|[^/]*/|../|g; s|[^/]*$||') # from site/$p.html back to site/
 	{
 		printf '<!doctype html>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width">\n'
-		printf '<title>%s</title>\n<p>%s</p>\n' "$(sed -n '/^# /{s///p;q}' "site/$p.md")" "${nav//href=\"/href=\"$up}"
+		printf '<title>%s</title>\n<p>%s | <a href="https://github.com/bober-lang/bober">GitHub</a></p>\n' "$(sed -n '/^# /{s///p;q}' "site/$p.md")" "${nav//href=\"/href=\"$up}"
 		sed 's/\.md)/.html)/g' "site/$p.md" | cmark-gfm -e table
 	} > "site/$p.html"
 done

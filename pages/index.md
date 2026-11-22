@@ -5,6 +5,7 @@ build-test loop. Formatter, linter, test runner and language server are all in t
 
 Bober is young, and everything here, the language included, will change.
 There are packages for Linux x86-64, Linux arm64 and macOS arm64 only.
+Source: [github.com/bober-lang/bober](https://github.com/bober-lang/bober).
 
 ```bober
 function main() { print("Hello Bober!") }
