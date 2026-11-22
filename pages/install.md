@@ -15,8 +15,8 @@ curl -fsSL https://bober-lang.dev/install.sh | PREFIX=$HOME/opt sh
 ## Update
 
 `bober update` gets the newest build, and `bober version` prints which one you have. About one run in 32 fetches
-`https://dl.bober-lang.dev/edge/version` in the background, sending nothing, and bober then tells you when a newer build
-is out. Set `BOBER_NO_UPDATE_CHECK` to turn that off.
+`https://github.com/bober-lang/bober/releases/download/edge/version` in the background, sending nothing, and bober then
+tells you when a newer build is out. Set `BOBER_NO_UPDATE_CHECK` to turn that off.
 
 ## Uninstall
 

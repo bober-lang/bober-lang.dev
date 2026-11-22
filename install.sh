@@ -13,7 +13,7 @@ PREFIX=${PREFIX:-$HOME/.local}
 mkdir -p "$PREFIX/share" "$PREFIX/bin"
 t=$(mktemp -d "$PREFIX/share/bober.XXXXXX")
 trap 'rm -rf "$t"' EXIT
-curl -fsSL "https://dl.bober-lang.dev/edge/bober-$p.tar.gz" | tar -xzf - -C "$t"
+curl -fsSL "https://github.com/bober-lang/bober/releases/download/edge/bober-$p.tar.gz" | tar -xzf - -C "$t"
 test -x "$t/bober/bin/bober"
 rm -rf "$PREFIX/share/bober"
 mv "$t/bober" "$PREFIX/share/bober"
